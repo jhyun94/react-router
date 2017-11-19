@@ -14,4 +14,7 @@ class PostsIndex extends Component{
   }
 }
 
-export default connect(null, { FetchPosts})(PostsIndex);
+function mapStateToProps(state){
+  return {posts: state.posts}
+}
+export default connect(mapStateToProps, { FetchPosts})(PostsIndex);
