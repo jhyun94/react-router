@@ -10,14 +10,17 @@ class PostNew extends Component{
           className="form-control"
           type="text"
           {...field.input} />
+          {field.meta.error}
       </div>
-      {field.meta.errors}
     )
   }
-
+  onSubmit(values){
+    console.log(values);
+  }
   render(){
+    const { handleSubmit} = this.props
     return(
-      <form>
+      <form onSubmit={ handleSubmit(this.onSubmit.bind(this))}>
         <Field
           label='Title'
           name='title'
@@ -28,8 +31,9 @@ class PostNew extends Component{
           component={ this.renderField} />
         <Field 
           label='Content'
-          name='tags'
+          name='content'
           component={ this.renderField} />
+        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     )
   }
