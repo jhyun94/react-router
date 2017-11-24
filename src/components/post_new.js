@@ -18,15 +18,15 @@ class PostNew extends Component{
     return(
       <form>
         <Field
-          label='title'
+          label='Title'
           name='title'
           component={ this.renderField} />
         <Field 
-          label='categories'
+          label='Categories'
           name='categories'
           component={ this.renderField} />
         <Field 
-          label='content'
+          label='Content'
           name='tags'
           component={ this.renderField} />
       </form>
