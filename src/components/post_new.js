@@ -22,16 +22,16 @@ class PostNew extends Component{
     return(
       <form onSubmit={ handleSubmit(this.onSubmit.bind(this))}>
         <Field
-          label='Title'
-          name='title'
+          label='Title for Post'
+          name="title"
           component={ this.renderField} />
         <Field 
           label='Categories'
-          name='categories'
+          name="categories"
           component={ this.renderField} />
         <Field 
-          label='Content'
-          name='content'
+          label='Post Content'
+          name="content"
           component={ this.renderField} />
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>
@@ -52,12 +52,13 @@ function validate(values){
   }
 
   if (!values.content){
-    errors.categories = 'Enter some content'
+    errors.content = 'Enter some content'
   }
 
   return errors;
 }
 
 export default reduxForm({
+  validate,
   form: 'PostNewForm' 
 })(PostNew)
