@@ -10,7 +10,7 @@ class PostNew extends Component{
           className="form-control"
           type="text"
           {...field.input} />
-          {field.meta.error}
+          {field.meta.touched ? field.meta.error : ''}
       </div>
     )
   }
