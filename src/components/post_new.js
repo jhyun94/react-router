@@ -23,7 +23,7 @@ class PostNew extends Component{
     )
   }
   onSubmit(values){
-    console.log(this.props.createPost(values));
+    this.props.createPost(values);
   }
   render(){
     const { handleSubmit} = this.props
