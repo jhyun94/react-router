@@ -8,8 +8,16 @@ class PostShow extends Component{
     this.props.FetchPost(id);
   }
   render(){
+    var { post} = this.props
+    if (!post){
+      return <div>...loading</div>
+    }
     return (
-      <div>Post Show!</div>
+      <div>
+        <h3>{post.title}</h3>
+        <p>categories: {post.categories}</p>
+        <p>{post.content}</p>
+      </div>
     )
   }
 }
