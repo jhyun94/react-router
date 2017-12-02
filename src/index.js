@@ -7,6 +7,7 @@ import reduxPromise from 'redux-promise';
 
 import reducers from './reducers';
 import PostAll from './components/post_index';
+import PostNew from './components/post_new';
 
 
 
@@ -18,7 +19,10 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
-        <Route to='/' component={PostAll} />
+        <Switch>
+          <Route path='/post' component={PostNew} />
+          <Route path='/' component={PostAll} />
+        </Switch>
       </div>
     </BrowserRouter>
   </Provider>
