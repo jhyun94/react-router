@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { fetchPosts } from '../actions';
 
 class PostAll extends Component{
@@ -8,11 +9,23 @@ class PostAll extends Component{
     this.props.fetchPosts();
   }
 
+  renderPosts(){
+    return _.map(this.props.posts, (post) => {
+      return (
+        <li className="list-group-item"
+          key={post.title}>
+          {post.title}
+        </li>
+      )
+    })
+  }
+
   render(){
-    console.log(this.props);
+    console.log(this.props.posts);
     return(
       <div>
-        <ul>
+        <ul className="list-group">
+          {this.renderPosts()}
         </ul>
       </div>
     )
