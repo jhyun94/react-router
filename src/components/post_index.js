@@ -5,18 +5,21 @@ import { fetchPosts } from '../actions';
 class PostAll extends Component{
   
   componentDidMount(){
-
+    this.props.fetchPosts();
   }
 
   render(){
+    console.log(this.props);
     return(
       <div>
         <ul>
-          {this.renderPosts}
         </ul>
       </div>
     )
   }
 }
 
-export default connect(null, {fetchPosts})(PostAll);
+function mapStateToProps({posts}){
+  return {posts};
+}
+export default connect(mapStateToProps, {fetchPosts})(PostAll);
