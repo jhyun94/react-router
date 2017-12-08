@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import { Field, reduxForm} from 'redux-form';
+import { Link } from 'react-router-dom';
 
 class PostNew extends Component{
 
@@ -12,10 +13,16 @@ class PostNew extends Component{
     )
 
   }
+
+  onSubmit(){
+    console.log('submit working');
+  }
+
   render(){
+    console.log(this.props)
     return(
       <div>
-        <form>
+        <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
           <Field
           label="Post Title"
           name="title"
@@ -28,6 +35,8 @@ class PostNew extends Component{
           label="Post Content"
           name="content"
           component={this.renderInput}/>
+          <button type="submit" className="btn btn-primary">Submit</button>
+          <Link to='/' className="btn btn-primary">Cancel</Link>
         </form>
       </div>
     )
