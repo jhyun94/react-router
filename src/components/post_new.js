@@ -7,15 +7,16 @@ import {createPost} from '../actions';
 class PostNew extends Component{
 
   renderInput(field){ 
-    console.log(field); 
+    console.log(field);
+    const classname = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : ''}` 
      return(   
-       <div className='form-group'>   
+       <div className={classname}>   
           <label>{field.label}</label>    
           <input    
             className="form-control"    
             type="text"
           {...field.input}/>
-          <div>
+          <div className="text-danger">
             {field.meta.touched ? field.meta.error : '' }
            </div>     
         </div>    
