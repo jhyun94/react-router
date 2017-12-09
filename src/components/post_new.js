@@ -6,14 +6,18 @@ import {createPost} from '../actions';
 
 class PostNew extends Component{
 
-  renderInput(field){  
+  renderInput(field){ 
+    console.log(field); 
      return(   
        <div className='form-group'>   
         <label>{field.label}</label>    
           <input    
           className="form-control"    
            type="text"
-           onChange={field.input.onChange}/>     
+           onChange={field.input.onChange}/>
+           <div>
+            {field.meta.error}
+           </div>     
       </div>    
      )   
  }
@@ -45,6 +49,24 @@ class PostNew extends Component{
   }
 }
 
+const validate = (values) => {
+  const errors = {};
+  if(!values.title){
+    errors.title = 'Title must not be blank';
+  }
+
+  if(!values.categories){
+    errors.categories = 'Categories must not be blank';
+  }
+
+  if(!values.content){
+    errors.content = 'Content must not be blank';
+  }
+
+  return errors;
+}
+
 export default reduxForm({
-  form: 'post'
+  form: 'post',
+  validate
 })(connect(null,{createPost})(PostNew));
