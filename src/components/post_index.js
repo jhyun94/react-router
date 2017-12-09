@@ -13,12 +13,12 @@ class PostAll extends Component{
   renderPosts(){
     return _.map(this.props.posts, (post) => {
       return (
-        <Link to={`/post/${post.id}`}>
-          <li className="list-group-item"
-            key={post.title}>
+        <li className="list-group-item"
+          key={post.title}>
+          <Link to={`/post/${post.id}`}>
             {post.title}
-          </li>
-        </Link>  
+          </Link>  
+        </li> 
       )
     })
   }
