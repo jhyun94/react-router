@@ -10,19 +10,20 @@ class PostNew extends Component{
     console.log(field); 
      return(   
        <div className='form-group'>   
-        <label>{field.label}</label>    
+          <label>{field.label}</label>    
           <input    
-          className="form-control"    
-           type="text"
-           onChange={field.input.onChange}/>
-           <div>
-            {field.meta.error}
+            className="form-control"    
+            type="text"
+          {...field.input}/>
+          <div>
+            {field.meta.touched ? field.meta.error : '' }
            </div>     
-      </div>    
+        </div>    
      )   
  }
 
   onSubmit(values){
+    console.log('submitted');
     this.props.createPost(values);
   }
 
